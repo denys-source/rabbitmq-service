@@ -83,7 +83,7 @@ async def main():
         await message_storage.append(
             f"{Fore.RED}Telegram token is invalid{Style.RESET_ALL}"
         )
-        logging.exception("Connect call failed!")
+        logging.exception("Telegram token is invalid!")
         sys.exit(1)
 
 
