@@ -76,9 +76,10 @@ def add_signal_handlers() -> None:
         loop.add_signal_handler(sig, lambda: asyncio.create_task(shutdown()))
 
 
-def configure_terminal() -> None:
+def configure_terminal() -> int:
     os.system("")
     tty.setcbreak(sys.stdin)
     os.system("clear")
 
-    move_to_bottom_of_screen()
+    total_rows = move_to_bottom_of_screen()
+    return total_rows
