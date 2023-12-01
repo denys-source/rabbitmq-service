@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    container_name: app 
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - rabbitmq
+    restart: on-failure
+    stdin_open: true
+    tty: true
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
